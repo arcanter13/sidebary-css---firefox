@@ -263,32 +263,37 @@ toolbarbutton:hover {
 }
 
 
-/* Hide tabs bar for Tree style tabs (Credit u/jfgxyz on Reddit) */
-toolbar#TabsToolbar {
-   height: 0px;
-   min-height: 0 !important;
-   background-color: var(--bg) !important;
+/* Hide tabs bar only when sidebar is open */
+#main-window:has(#sidebar-box:not([hidden])) toolbar#TabsToolbar {
+  height: 0px !important;
+  min-height: 0 !important;
+  overflow: hidden !important;
 }
 
-.toolbar-items {
-   visibility: collapse;
+#main-window:has(#sidebar-box:not([hidden])) .toolbar-items {
+  visibility: collapse !important;
 }
 
-/* FIXED: Only hide native Firefox tabs, not Sidebery tabs */
-/* Only target native Firefox tab elements in the tab bar, not sidebar tabs */
-#TabsToolbar .tab[selected="true"] {
-   visibility: collapse;
-   height: 0px;
+#main-window:has(#sidebar-box:not([hidden])) #TabsToolbar .tabbrowser-tab {
+  visibility: collapse !important;
+  height: 0px !important;
 }
 
-#TabsToolbar .tabbrowser-tab {
-   visibility: collapse;
-   height: 0px;
+/* Show tabs when sidebar is hidden/closed */
+#main-window:has(#sidebar-box[hidden]) toolbar#TabsToolbar,
+#sidebar-box[hidden] ~ * toolbar#TabsToolbar {
+  height: auto !important;
+  min-height: initial !important;
+  overflow: visible !important;
 }
 
-#TabsToolbar .tabbrowser-tab[visuallyselected="true"] {
-   visibility: collapse;
-   height: 0px;
+#main-window:has(#sidebar-box[hidden]) .toolbar-items {
+  visibility: visible !important;
+}
+
+#main-window:has(#sidebar-box[hidden]) #TabsToolbar .tabbrowser-tab {
+  visibility: visible !important;
+  height: auto !important;
 }
 
 /* ----- Move menu buttons ----- */
