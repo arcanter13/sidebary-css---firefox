@@ -1,0 +1,48 @@
+/* Il tuo codice per nascondere l'indentazione */
+#root:not(:hover){
+  --tabs-indent: 0;
+}
+
+/* Nascondi l'icona audio quando la sidebar è chiusa */
+#root:not(:hover) .Tab .audio {
+  opacity: 0 !important;
+  pointer-events: none !important;
+  transition: opacity 0.2s ease !important;
+}
+
+/* Mostra l'icona audio quando la sidebar è aperta */
+#root:hover .Tab .audio {
+  opacity: 1 !important;
+  pointer-events: auto !important;
+  transition: opacity 0.2s ease !important;
+}
+
+/* Audio badge con area cliccabile espansa */
+.Tab .fav {
+  position: relative !important;
+}
+
+.Tab .audio {
+  position: absolute !important;
+  left: 10px !important;
+  top: 10px !important;
+  z-index: 999 !important;
+  width: 14px !important;
+  height: 14px !important;
+  background-color: rgba(33, 33, 33, 0.95) !important;
+  border-radius: 3px !important;
+  padding: 2px !important;
+  cursor: pointer !important;
+  margin: -6px !important;
+  padding: 8px !important;
+}
+
+/* Impedisce ad altri elementi di catturare il click quando la sidebar è aperta */
+#root:hover .Tab:has(.audio) .t-box {
+  pointer-events: none !important;
+}
+
+.Tab .audio,
+.Tab .audio * {
+  pointer-events: auto !important;
+}
