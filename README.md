@@ -18,4 +18,5 @@ Write your userChrome.css
     Create a folder named chrome inside it.
     Create a file named userChrome.css inside the chrome folder you just created.
     Paste in userChrome.css whatever you like from above
-    Restart Firefox for changes to take effect. If nothing changes, try going to about:profiles and click the "Restart Normally" button in the upper right portion of the screen. Thanks @kr1s7ian for pointing this out.
+    Restart Firefox for changes to take effect. If nothing changes, try going to about:profiles and click the
+    "Restart Normally" button in the upper right portion of the screen. Thanks @kr1s7ian for pointing this out.
